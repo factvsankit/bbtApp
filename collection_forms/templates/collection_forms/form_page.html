@@ -1,0 +1,42 @@
+{% extends "collection_forms/form_base.html" %}
+
+{% load wagtailcore_tags foundation_formtags %}
+
+{% block contact_content %}
+     <div class="callout secondary">
+         <span style="color: 1B5E20; ">{{ self.intro|richtext }}</span>
+         <div class="form-panel">
+             <form class="contact-form" action="{% pageurl self %}" method="POST">
+                 {% csrf_token %}
+                 {{ form|as_foundation }}
+                 <input class="button radius float-right" name="Send" type="submit" value="Submit">
+                 <br>
+                 <br>
+             </form>
+         </div>
+     </div>
+{% endblock %}
+
+
+{% block extra_css %}
+<style>
+    .bottom-shadow{
+        display: none;
+    }
+
+    input {
+        background-color: #777;
+    }
+
+    .errorlist li{
+        color: red;
+    }
+
+    .form-panel  small{
+        display: none;
+    }
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.min.css">
+{% endblock %}

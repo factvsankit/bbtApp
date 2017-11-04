@@ -1,0 +1,33 @@
+{% extends "_base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+
+{% block content %}
+
+<div id="content" class="row">
+
+    <div class="medium-10 medium-centered columns">
+        <br />
+        <center><h3>{{ self.title }}</h3></center>
+
+        <br>
+
+        <div class="row">
+            <div class="medium-3 columns">&nbsp;</div>
+            <div class="medium-6 columns">
+                {% block contact_content %}{% endblock %}
+            </div>
+            <div class="medium-3 columns">&nbsp;</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block css %}
+    <style>
+        body{
+            display: none;
+        }
+    </style>
+{% endblock %}
